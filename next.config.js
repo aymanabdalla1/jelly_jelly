@@ -1,9 +1,13 @@
-const { withNextVideo } = require('next-video/process')
-
 /** @type {import('next').NextConfig} */
-module.exports = {
-  reactStrictMode: true,
-  images: {
-    domains: ["upcdn.io", "replicate.delivery"],
+const nextConfig = {
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.(woff|woff2|eot|ttf|otf)$/i,
+      issuer: { and: [/\.(js|ts|md)x?$/] },
+      type: 'asset/resource',
+    });
+    return config;
   },
-};
+}
+
+module.exports = nextConfig
