@@ -1,44 +1,57 @@
-# Automatic subtitles in your videos
+# [CaptionAI](https://captionai.vercel.app/)
 
-This repository uses `ffmpeg` and [OpenAI's Whisper](https://openai.com/blog/whisper) to automatically generate and overlay subtitles on any video.
+This project creates captions for photos using AI. 
 
-## Installation
+[![CaptionAI](./public/screenshot.png)](https://captionai.vercel.app/)
 
-To get started, you'll need Python 3.7 or newer. Install the binary by running the following command:
+## How it works
+Developed this using [this template.](https://github.com/Nutlope/restorePhotos/tree/1c5c8ac4f52a08f68a3091d3b21be8a65aef71f2)
 
-    pip install git+https://github.com/m1guelpf/auto-subtitle.git
+It uses an ML model from salesforce called [BLIP](https://github.com/salesforce/BLIP) on [Replicate](https://replicate.com/) to convert images into text. This application gives you the ability to upload any photo, which will send it through this ML Model using a Next.js API route, and return your caption.
 
-You'll also need to install [`ffmpeg`](https://ffmpeg.org/), which is available from most package managers:
+## Running Locally
+
+### Cloning the repository the local machine.
 
 ```bash
-# on Ubuntu or Debian
-sudo apt update && sudo apt install ffmpeg
-
-# on MacOS using Homebrew (https://brew.sh/)
-brew install ffmpeg
-
-# on Windows using Chocolatey (https://chocolatey.org/)
-choco install ffmpeg
+git clone
 ```
 
-## Usage
+### Creating a account on Replicate to get an API key.
 
-The following command will generate a `subtitled/video.mp4` file contained the input video with overlayed subtitles.
+1. Go to [Replicate](https://replicate.com/) to make an account.
+2. Click on your profile picture in the top right corner, and click on "Dashboard".
+3. Click on "Account" in the navbar. And, here you can find your API token, copy it.
 
-    auto_subtitle /path/to/video.mp4 -o subtitled/
+### Storing API key in .env file.
 
-The default setting (which selects the `small` model) works well for transcribing English. You can optionally use a bigger model for better results (especially with other languages). The available models are `tiny`, `tiny.en`, `base`, `base.en`, `small`, `small.en`, `medium`, `medium.en`, `large`.
+Create a file in root directory of project with env. And store your API key in it, as shown in the .example.env file.
 
-    auto_subtitle /path/to/video.mp4 --model medium
+If you'd also like to do rate limiting, create an account on UpStash, create a Redis database, and populate the two environment variables in `.env` as well. If you don't want to do rate limiting, you don't need to make any changes.
 
-Adding `--task translate` will translate the subtitles into English:
+### Installing the dependencies.
 
-    auto_subtitle /path/to/video.mp4 --task translate
+```bash
+npm install
+```
 
-Run the following to view all available options:
+### Running the application.
 
-    auto_subtitle --help
+Then, run the application in the command line and it will be available at `http://localhost:3000`.
 
-## License
+```bash
+npm run dev
+```
+ 
+## Deploy
 
-This script is open-source and licensed under the MIT License. For more details, check the [LICENSE](LICENSE) file.
+When deploying on Vercel also include the Environmentable Variables.
+
+## Powered by
+
+This example is powered by the following 3 services:
+
+- [Replicate](https://replicate.com) (AI API)
+- [Upload](https://upload.io) (storage)
+- [Upstash Redis](https://docs.upstash.com/redis) (Rate Limiting)
+- [Vercel](https://vercel.com) (hosting, serverless functions, analytics)
