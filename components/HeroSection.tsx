@@ -2,6 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 import React, { useState } from "react";
 
+// @ts-ignore
+import Video from 'next-video';
+const getStarted = require('../videos/get-started.mp4');
+
 import { HiOutlineClipboardDocument } from "react-icons/hi2";
 
 export default function HeroSection() {
@@ -41,13 +45,14 @@ export default function HeroSection() {
           <div className="flex sm:space-x-10 sm:flex-row flex-col">
             <div className="w-full md:w-1/2">
               <h2 className="mb-1 font-medium text-lg">Original Video</h2>
-              <Image
+              <Video src={getStarted} />
+              {/* <Image
                 alt="Dog and blue building"
                 src="/example.jpg"
                 className="w-96 h-96 rounded-2xl"
                 width={400}
                 height={400}
-              />
+              /> */}
             </div>
 
             <div className="sm:mt-0 mt-8 w-full md:w-1/2">
