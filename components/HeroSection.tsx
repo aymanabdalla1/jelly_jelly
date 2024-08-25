@@ -19,25 +19,17 @@ export default function HeroSection() {
   return (
     <main className="flex flex-1 w-full flex-col items-center justify-center text-center px-4 sm:mt-28 mt-20">
       <h1 className="mx-auto max-w-4xl font-display text-5xl font-bold tracking-normal sm:text-7xl text-white">
-        Easily add captions to your images
-        <span className="relative whitespace-nowrap text-[#757fdf]">
+        Easily add captions to your videos
+        <span className="relative whitespace-nowrap text-[#7DF9FF]">
           <span className="relative"> using AI.</span>
         </span>
       </h1>
       <p className="mx-auto mt-4 md:mt-12 max-w-xl text-lg text-stone-400 leading-7">
-        Take your images to the next level with custom captions.
+        Take your videos to the next level with custom captions.
       </p>
       <div className="flex justify-center space-x-4">
-        <a
-          className="bg-white rounded-xl text-black font-medium px-4 py-3 sm:mt-10 mt-8 hover:bg-gray-100 border"
-          href="https://youtu.be/9TZsh_-y9DA"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Learn how it's built
-        </a>
         <Link
-          className="bg-[#4b4cb7] rounded-xl text-white font-medium px-4 py-3 sm:mt-10 mt-4 hover:bg-[#4b4cb7]/80"
+          className="bg-[#1F51FF] rounded-xl text-white font-medium px-4 py-3 sm:mt-10 mt-4 hover:bg-[#4b4cb7]/80"
           href="/caption"
         >
           Create a caption
@@ -48,7 +40,7 @@ export default function HeroSection() {
         <div className="flex flex-col space-y-10 mt-4 mb-16">
           <div className="flex sm:space-x-10 sm:flex-row flex-col">
             <div className="w-full md:w-1/2">
-              <h2 className="mb-1 font-medium text-lg">Original Photo</h2>
+              <h2 className="mb-1 font-medium text-lg">Original Video</h2>
               <Image
                 alt="Dog and blue building"
                 src="/example.jpg"
@@ -59,14 +51,14 @@ export default function HeroSection() {
             </div>
 
             <div className="sm:mt-0 mt-8 w-full md:w-1/2">
-              <h2 className="mb-1 font-medium text-lg">Generated Caption</h2>
+              <h2 className="mb-1 font-medium text-lg">Generated Video</h2>
               <textarea
                 className="w-full h-32 p-2 text-gray-700 border border-gray-300 rounded-md resize-none focus:outline-none focus:ring"
                 placeholder="Enter text here..."
                 value="a brown dog standing on top of a blue building"
               />
               <button
-                className="px-4 py-2 text-white bg-[#5a5cd1] rounded-md hover:bg-[#3f4194] focus:outline-none focus:ring"
+                className="px-4 py-2 text-white bg-[#1F51FF] rounded-md hover:bg-[#3f4194] focus:outline-none focus:ring"
                 onClick={() =>
                   copyToClipboard(
                     "a brown dog standing on top of a blue building"
