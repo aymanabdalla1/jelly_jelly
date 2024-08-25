@@ -21,7 +21,7 @@ async function basicUpload(params: { accountId: any; apiKey: any; requestBody: a
   
   basicUpload({
     accountId: "kW15cCW",
-    apiKey: process.env.BYTESCALE_API_KEY,
+    apiKey: process.env.NEXT_PUBLIC_BYTESCALE_API_KEY,
     requestBody: new Blob( // Or: pass a 'file' object from an input element.
       [ "Example Data" ],
       { type: "text/plain" }

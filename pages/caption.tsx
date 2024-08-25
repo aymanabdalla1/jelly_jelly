@@ -8,6 +8,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import { Uploader } from "uploader";
 import { UploadDropzone } from "react-uploader";
+import * as Bytescale from "@bytescale/upload-widget";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -23,13 +24,15 @@ React.useLayoutEffect = React.useEffect;
 
 // Configuration for the uploader
 const uploader = Uploader({
-  apiKey: "public_kW15cCW4k96nrJTV58DKFy5M1MyT",
+  apiKey: !!process.env.NEXT_PUBLIC_UPLOAD_API_KEY
+    ? process.env.NEXT_PUBLIC_UPLOAD_API_KEY
+    : "free",
 });
 
 const options = {
   maxFileCount: 1,
-  apiKey: "public_kW15cCW4k96nrJTV58DKFy5M1MyT",
-  mimeTypes: ["video/.mp4"],
+
+  mimeTypes: ["video/*"],
   editor: { images: { crop: false } },
   styles: {
     colors: {
@@ -59,6 +62,25 @@ const options = {
       : "Detected a NSFW image which is not allowed.";
   },
 };
+
+const options = {
+  apiKey: "public_kW15cCW4k96nrJTV58DKFy5M1MyT", // This is your API key.
+  maxFileCount: 1
+};
+
+Bytescale.UploadWidget.open(options).then(
+  files => {
+    const fileUrls = files.map(x => x.fileUrl).join("\n");
+    const success = fileUrls.length === 0
+      ? "No file selected."
+      : `File uploaded:\n\n${fileUrls}`;
+
+    alert(success);
+  },
+  error => {
+    alert(error);
+  }
+);
 
 const Home: NextPage = () => {
   const [originalPhoto, setOriginalPhoto] = useState<string | null>(null);
