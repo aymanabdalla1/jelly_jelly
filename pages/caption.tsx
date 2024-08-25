@@ -30,11 +30,12 @@ const uploader = Uploader({
 
 const options = {
   maxFileCount: 1,
-  mimeTypes: ["image/jpeg", "image/png", "image/jpg"],
+
+  mimeTypes: ["video/*"],
   editor: { images: { crop: false } },
   styles: {
     colors: {
-      primary: "#5a5cd1", // Primary buttons & links
+      primary: "#1F51FF", // Primary buttons & links
       error: "#d23f4d", // Error messages
       shade100: "#fff", // Standard text
       shade200: "#fffe", // Secondary button text
@@ -57,7 +58,7 @@ const options = {
     }
     return isSafe
       ? undefined
-      : "Detected a NSFW image which is not allowed. If this was a mistake, please contact me at hosna.qasmei@gmail.com";
+      : "Detected a NSFW image which is not allowed.";
   },
 };
 
@@ -81,6 +82,8 @@ const Home: NextPage = () => {
     <UploadDropzone
       uploader={uploader}
       options={options}
+      
+      
       onUpdate={(file) => {
         if (file.length !== 0) {
           setOriginalPhoto(file[0].fileUrl.replace("raw", "thumbnail"));

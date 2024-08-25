@@ -6,6 +6,8 @@ import React, { useState } from "react";
 import Video from 'next-video';
 const getStarted = require('../videos/get-started.mp4');
 
+import MuxPlayer from '@mux/mux-player-react';
+
 import { HiOutlineClipboardDocument } from "react-icons/hi2";
 
 export default function HeroSection() {
@@ -57,24 +59,10 @@ export default function HeroSection() {
 
             <div className="sm:mt-0 mt-8 w-full md:w-1/2">
               <h2 className="mb-1 font-medium text-lg">Generated Video</h2>
-              <textarea
-                className="w-full h-32 p-2 text-gray-700 border border-gray-300 rounded-md resize-none focus:outline-none focus:ring"
-                placeholder="Enter text here..."
-                value="a brown dog standing on top of a blue building"
-              />
-              <button
-                className="px-4 py-2 text-white bg-[#1F51FF] rounded-md hover:bg-[#3f4194] focus:outline-none focus:ring"
-                onClick={() =>
-                  copyToClipboard(
-                    "a brown dog standing on top of a blue building"
-                  )
-                }
-              >
-                <div className="flex flex-row items-center justify-center">
-                  <HiOutlineClipboardDocument className="w-5 h-5 mr-1" />
-                  {buttonText}
-                </div>
-              </button>
+              <video height="452" width="768" controls >
+          <source src="https://ik.imagekit.io/ikmedia/example_video.mp4" />
+          Your browser does not support the video tag...
+        </video>
             </div>
           </div>
         </div>
