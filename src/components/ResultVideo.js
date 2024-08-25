@@ -7,7 +7,7 @@ import roboto from './../fonts/Roboto-Regular.ttf';
 import robotoBold from './../fonts/Roboto-Bold.ttf';
 
 export default function ResultVideo({filename,transcriptionItems}) {
-  const videoUrl = "https://dawid-epic-captions.s3.amazonaws.com/"+filename;
+  const videoUrl = "https://autosubtitlesjohnayman.s3.us-east-2.amazonaws.com/"+filename;
   const [loaded, setLoaded] = useState(false);
   const [primaryColor, setPrimaryColor] = useState('#FFFFFF');
   const [outlineColor, setOutlineColor] = useState('#000000');
