@@ -51,4 +51,3 @@ videos/*
 public/_next-video
 
 .venv
-.auto_subtitle/__pycache__/
