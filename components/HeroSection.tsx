@@ -2,14 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import React, { useState } from "react";
 
-// @ts-ignore
-import Video from 'next-video';
-const getStarted = require('../videos/get-started.mp4');
-
-import MuxPlayer from '@mux/mux-player-react';
-
-import { HiOutlineClipboardDocument } from "react-icons/hi2";
-
 export default function HeroSection() {
   const [buttonText, setButtonText] = useState("Copy");
 
@@ -47,22 +39,18 @@ export default function HeroSection() {
           <div className="flex sm:space-x-10 sm:flex-row flex-col">
             <div className="w-full md:w-1/2">
               <h2 className="mb-1 font-medium text-lg">Original Video</h2>
-              <Video src={getStarted} />
-              {/* <Image
-                alt="Dog and blue building"
-                src="/example.jpg"
-                className="w-96 h-96 rounded-2xl"
-                width={400}
-                height={400}
-              /> */}
+              <video height="452" width="768" controls>
+                <source src="https://upcdn.io/kW15cCW/raw/mr_beast.mp4" />
+                Your browser does not support the video tag...
+              </video>
             </div>
 
             <div className="sm:mt-0 mt-8 w-full md:w-1/2">
               <h2 className="mb-1 font-medium text-lg">Generated Video</h2>
-              <video height="452" width="768" controls >
-          <source src="https://ik.imagekit.io/ikmedia/example_video.mp4" />
-          Your browser does not support the video tag...
-        </video>
+              <video height="452" width="768" controls>
+                <source src="https://upcdn.io/kW15cCW/raw/generated.mp4" />
+                Your browser does not support the video tag...
+              </video>
             </div>
           </div>
         </div>

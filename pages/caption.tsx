@@ -23,15 +23,13 @@ React.useLayoutEffect = React.useEffect;
 
 // Configuration for the uploader
 const uploader = Uploader({
-  apiKey: !!process.env.NEXT_PUBLIC_UPLOAD_API_KEY
-    ? process.env.NEXT_PUBLIC_UPLOAD_API_KEY
-    : "free",
+  apiKey: "public_kW15cCW4k96nrJTV58DKFy5M1MyT",
 });
 
 const options = {
   maxFileCount: 1,
-
-  mimeTypes: ["video/*"],
+  apiKey: "public_kW15cCW4k96nrJTV58DKFy5M1MyT",
+  mimeTypes: ["video/.mp4"],
   editor: { images: { crop: false } },
   styles: {
     colors: {
